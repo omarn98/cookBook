@@ -2,6 +2,7 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+import path from 'path';
 
 const app = express();
 //mongodb+srv://admin-omar:test123@cluster0.po4rf.mongodb.net/cookBookDB
@@ -97,5 +98,20 @@ app.put("/updateRecipe/:title",async (req,res)=>{
     res.send("success");
   
 });
+
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
+let port = process.env.PORT;
+if(port == null || port==""){
+  port= 5000;
+}
+
 
 app.listen(5000, () => console.log('Server Started...'));
