@@ -2,7 +2,9 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
 }
+
 
 html {
     font-family: sans-serif;
@@ -28,11 +30,12 @@ header h1{
 .recipe{
     float: left;
     padding:  0 20px;
-    background-color: #FEE2C5;
+    background-color: #79DAE8;
     width: 400px;
     height: 400px;
     padding: 20px;
     margin: 20px;
+    border-radius: 25px;
 }
 
 .recipe img{
@@ -45,18 +48,36 @@ header h1{
     color: #141E61;
     padding: 20px;
     margin: 0;
+    padding: 20px 0;
 }
+
+.recipe button{
+    display: block;
+    
+    appearance: none;
+    outline: 0;
+    background-color: #141E61;
+    border: 0;
+    padding: 10px 15px;
+    color: #eee;
+    border-radius: 3px;
+    width: 250px;
+    font-size: 18px;
+    
+}
+
 
 .add-recipe{
     float: left;
     padding:  0 20px;
-    background-color: #FEE2C5;
+    background-color: #79DAE8;
     width: 400px;
     height: 400px;
     padding: 20px;
     margin: 20px;
     font-size: 30px;
     border: 0;
+    border-radius: 25px;
 }
 
 .container {
@@ -65,12 +86,12 @@ header h1{
     padding: 80px 0;
     text-align: center;
     width: 40%;
-    background-color: #FEE2C5;
+    background-color: #79DAE8;
   }
 
 .container input {
     
-    background-color: #FEE2C5;
+    background-color: #79DAE8;
     width: 250px;
     border-radius: 3px;
     font-family: "Source Sans Pro", sans-serif;
@@ -78,7 +99,7 @@ header h1{
     margin: 0 auto 10px auto;
     display: block;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     color: black;
     font-weight: 300;
   }
@@ -163,3 +184,35 @@ header h1{
     width: 250px;
     font-size: 18px;
 }
+
+.edit-recipe input{
+    
+  
+    width: 250px;
+    border-radius: 3px;
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 10px 15px;
+    margin: 20px;
+    display: block;
+    text-align: left;
+    font-size: 15px;
+    color: black;
+    font-weight: 300;
+}
+
+.edit-recipe textarea{
+    
+  
+    width: 90%;
+    height: 400px;
+    border-radius: 3px;
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 10px 15px;
+    margin: 20px;
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    color: black;
+    font-weight: 300;
+}
+

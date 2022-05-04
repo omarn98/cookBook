@@ -82,31 +82,59 @@ function EditRecipe(props){
         
     }
 
+    async function removeingredient(e){
+        e.preventDefault();
+        console.log(e.target.id)
+        let ing = recipe.ingredients.filter((ingredient,index) => {
+            return index != e.target.id; 
+    });
+    
+    setRecipe(prevRecipe =>{
+        return{
+            ...prevRecipe,
+            ingredients: ing
+        };
+    });
+    
+    
+    }
+
+    function exitEdit(){
+        window.location.reload();
+    }
+    
+
     return (
-        <div>
+        <div className="edit-recipe edit">
+        <h2>Title</h2>
             <input 
                 name="title"
                 onChange={handleChange}
                 value={recipe.title}
                
             />
+            <h2>ingredients</h2>
             <input 
                 name="ingredient"
                 onChange={handleChangeIngredient}
                 value={ingredient}
             />
             <button onClick={addIngredient}>+</button>
+            
+            {recipe.ingredients.map((displayIngrediant,index) => {
+                return(
+                        <div key={index} className= "ingredients">
+                        <p >{displayIngrediant}</p>
+                        <button key={index} id={index} onClick={removeingredient}>X</button>
+                        </div>
+                    );
+            })}
             <input 
             name= 'image'
             type='file' 
             accept='image/png, image/jpeg'    
             onChange={uploadImage}           
             />
-            {recipe.ingredients.map((displayIngrediant,index) => {
-                return(
-                    <p key={index}>{displayIngrediant}</p>
-                );
-            })}
             <img id="displayImage" width='200' src={props.ImageUrl}/>
             <textarea
                 name = "content"
@@ -117,8 +145,13 @@ function EditRecipe(props){
             <button
                 onClick={addRecipe}
             >
-                submit
-            </button>           
+                Submit
+            </button>    
+            <button
+                onClick={exitEdit}
+            >
+                Exit
+            </button>         
         </div> 
     );
         }

@@ -106,21 +106,21 @@ function AddRecipe(props){
         props.OnAdd()
     }
 
-    async function removeingredient(e){
-        e.preventDefault();
-        console.log(e.target.id)
-        let ing = recipe.ingredients.filter((ingredient,index) => {
-            return index != e.target.id; 
-    });
+async function removeingredient(e){
+    e.preventDefault();
+    console.log(e.target.id)
+    let ing = recipe.ingredients.filter((ingredient,index) => {
+        return index != e.target.id; 
+});
 
-    setRecipe(prevRecipe =>{
-        return{
-            ...prevRecipe,
-            ingredients: ing
-        };
-    });
+setRecipe(prevRecipe =>{
+    return{
+        ...prevRecipe,
+        ingredients: ing
+    };
+});
 
-    console.log(ing);
+
 }
 
 function exitAdd(){
