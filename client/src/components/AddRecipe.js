@@ -70,40 +70,19 @@ function AddRecipe(props){
 
         const imageRef = ref(storage, `images/${imgName}`);
         console.log(imageRef);
-        uploadBytes(imageRef,recipe.image).then((snapshot) => {
-            console.log('Uploaded a blob or file!');
+        uploadBytes(imageRef,recipe.image).then(async (snapshot) => {
+                const res = await axios.post('/addRecipe', {
+                    title: recipe.title,
+                    ingredients: recipe.ingredients,
+                    content: recipe.content,
+                    imageName: imgName
+              })
+              .then(()=>{
+                props.OnAdd()
+              })
           });
-        
-
-        const myRenamedImg = new File([recipe.image], imgName);
-
-        
-        // const formData = new FormData();
-        // formData.append('file', myRenamedImg);
-    
-        
-        //   const imgres = await axios.post('/addRecipeImage', formData, {
-        //     headers: {
-        //       'Content-Type': 'multipart/form-data'
-        //     }
-        //   });
-          
-
-          
-    
-        //    const { fileName } = imgres.data;
-
-
-          const res = await axios.post('/addRecipe', {
-              title: recipe.title,
-              ingredients: recipe.ingredients,
-              content: recipe.content,
-              imageName: imgName
-          });
-
-         
-         
-        props.OnAdd()
+     
+       
     }
 
 async function removeingredient(e){

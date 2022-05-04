@@ -71,7 +71,7 @@ catch(err){
 
 app.delete("/deleteRecipe/:title",async (req,res)=>{
   const Recipe = mongoose.model("Recipe", recipeSchema);
-  deleteCheck = await Recipe.deleteOne({ title: req.params.title });
+  let deleteCheck = await Recipe.deleteOne({ title: req.params.title });
   if(deleteCheck.ok==1){
     if(deleteCheck.deletedCount==1){
       res.send( "Success");

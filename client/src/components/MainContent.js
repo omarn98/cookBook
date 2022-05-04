@@ -63,12 +63,19 @@ function MainContent(){
 
         
         const imageRef = ref(storage, `images/${deletedRecipe.imageName}`);
+        await deleteObject(imageRef)
+        .then(async ()=>{
+            await  axios.delete(`/deleteRecipe/${deletedRecipe.title}`)
+            .then(()=>{
+                window.location.reload();
+            });
+        });
 
-       await  axios.delete(`/deleteRecipe/${deletedRecipe.title}`);
+       
 
-        await deleteObject(imageRef);
         
-        window.location.reload();
+        
+        
         
     }
 
