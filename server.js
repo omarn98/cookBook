@@ -1,7 +1,11 @@
-const express = require('express');
-const fileUpload = require('express-fileupload');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+import express from 'express';
+import fileUpload from 'express-fileupload';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+// const express = require('express');
+// const fileUpload = require('express-fileupload');
+// const bodyParser = require('body-parser');
+// const mongoose = require('mongoose');
 import path from 'path';
 
 const app = express();
